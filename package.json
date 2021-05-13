@@ -51,6 +51,7 @@
     "url": "git@github.com:taniarascia/webpack-boilerplate"
   },
   "dependencies": {
+    "file-loader": "^6.2.0",
     "three": "^0.128.0"
   }
 }
