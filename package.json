@@ -17,7 +17,8 @@
     "url": "https://cvgellhorn@github.com/cvgellhorn/webpack-boilerplate.git"
   },
   "dependencies": {
-    "lodash": "4.17.21"
+    "lodash": "4.17.21",
+    "three": "^0.128.0"
   },
   "devDependencies": {
     "@babel/core": "7.14.2",
