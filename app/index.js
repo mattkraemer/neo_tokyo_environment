@@ -7,6 +7,7 @@ import 'scss/_index.scss';
 
 // Import Three.js
 import * as THREE from 'three';
+import { GLTFLoader } from 'three/examples/jsm/loaders/GLTFLoader.js';
 
 // Create the Scene
 const scene = new THREE.Scene();
@@ -20,18 +21,19 @@ const renderer = new THREE.WebGLRenderer();
 renderer.setSize(window.innerWidth, window.innerHeight);
 document.body.appendChild(renderer.domElement);
 
-// Geometry
-const geometry = new THREE.BoxGeometry();
-const material = new THREE.MeshBasicMaterial({ color: 0x00ff00 });
-const cube = new THREE.Mesh(geometry, material);
-scene.add(cube);
+// 3D Model
+const loader = new GLTFLoader();
+
+loader.load('../assets/neo_tokyo/scene.gltf', function(gltf) {
+  scene.scale.set(0.01,0.01,0.01);
+  scene.add(gltf.scene);
+}, undefined, function(error) {
+  console.error(error);
+});
 
 // Animate
 function animate() {
   requestAnimationFrame(animate);
-
-  cube.rotation.x += 0.01;
-  cube.rotation.y += 0.01;
 
   renderer.render(scene,camera);
 }
